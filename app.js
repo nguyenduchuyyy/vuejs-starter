@@ -18,21 +18,41 @@ new Vue({
 			var damage = Math.max(Math.floor(Math.random()*maxDamage)+1, minDamage);
 			this.monsterH -= damage;
 
-			if (this.monsterH <= 0) {
-				alert("Player Win!!!!");
-				this.endGame();
-				return;
-			}
+			// if (this.monsterH <= 0) {
+			// 	alert("Player Win!!!!");
+			// 	this.endGame();
+			// 	return;
+			// }
 
 			//player
-			maxDamage = 10;
-			minDamage = 5;
+			maxDamage = 30;
+			minDamage = 25;
 			damage = Math.max(Math.floor(Math.random()*maxDamage)+1, minDamage);
 			this.playerH -= damage;
 
-			if (this.playerH <= 0) {
+			this.checkHP(this.playerH ,this.monsterH )
+			// if (this.playerH <= 0) {
+			// 	alert("Monster Win!!!!");
+			// 	// this.endGame();
+			// }else if(this.monsterH <= 0){
+			// 	alert("Player Win!!!!");
+			// 	// this.endGame();
+			// }
+		},
+		checkHP: function(playerH,monsterH) {
+			if (playerH <= 0 && playerH<monsterH) {
 				alert("Monster Win!!!!");
-				this.endGame();
+				this.starGame=false;
+				return;
+			} else if(monsterH <= 0 && playerH>monsterH) {
+				alert("Player Win!!!!");
+				this.starGame=false;
+				return;
+			} else if(playerH==monsterH && playerH < 0 && monsterH < 0 || (playerH==0 && monsterH==0)) {
+				alert("Draw!!!!");
+				this.starGame=false;
+				return;
+
 			}
 		},
 		endGame: function() {
