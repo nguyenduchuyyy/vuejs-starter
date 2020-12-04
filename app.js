@@ -13,8 +13,8 @@ new Vue({
 		},
 		attack: function() {
 			//moster
-			var maxDamage = 30;
-			var minDamage = 25;
+			var maxDamage = 20;
+			var minDamage = 15;
 			var damage = Math.max(Math.floor(Math.random()*maxDamage)+1, minDamage);
 			this.monsterH -= damage;
 
@@ -25,8 +25,8 @@ new Vue({
 			// }
 
 			//player
-			maxDamage = 30;
-			minDamage = 25;
+			maxDamage = 20;
+			minDamage = 15;
 			damage = Math.max(Math.floor(Math.random()*maxDamage)+1, minDamage);
 			this.playerH -= damage;
 
@@ -38,6 +38,25 @@ new Vue({
 			// 	alert("Player Win!!!!");
 			// 	// this.endGame();
 			// }
+		},
+		specialAttack: function() {
+			//moster
+			var maxDamage = 30;
+			var minDamage = 25;
+			var damage = Math.max(Math.floor(Math.random()*maxDamage)+1, minDamage);
+			this.monsterH -= damage;
+			//player
+			maxDamage = 30;
+			minDamage = 25;
+			damage = Math.max(Math.floor(Math.random()*maxDamage)+1, minDamage);
+			this.playerH -= damage;
+
+			this.checkHP(this.playerH ,this.monsterH );
+		},
+		heal: function() {
+			//player
+			(this.playerH <= 100)?this.playerH+=10:this.playerH; 
+			(this.playerH > 100)?this.playerH=100:this.playerH; 
 		},
 		checkHP: function(playerH,monsterH) {
 			if (playerH <= 0 && playerH<monsterH) {
