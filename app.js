@@ -30,7 +30,7 @@ new Vue({
 			damage = Math.max(Math.floor(Math.random()*maxDamage)+1, minDamage);
 			this.playerH -= damage;
 
-			this.checkHP(this.playerH ,this.monsterH )
+			this.checkHP(this.playerH ,this.monsterH );
 			// if (this.playerH <= 0) {
 			// 	alert("Monster Win!!!!");
 			// 	// this.endGame();

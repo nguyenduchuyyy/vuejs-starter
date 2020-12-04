@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script src="vue.js"></script>
+<style type="text/css">
+	.square{
+		background: gray;
+		width: 300px;
+		height: 300px;
+		float: left;
+		margin: 20px;
+	}
+	.maudo{
+		background: red;
+	}
+	.mauxanh{
+		background: green;
+	}
+</style>
+<body>
+	
+	<div id="hello" >
+		<div>
+			<input type="text" v-model="message">
+
+		</div>
+		<div>
+			{{message}}
+		</div>
+
+		{{message}}
+		<div>
+			<button @click="dem++">Push</button>
+			<div>{{dem}}</div>
+		</div>
+	</div>
+
+	<div id="do">
+		<div class="square" id="blue" @click="mau = true,maua=false":class="{maudo:mau}"></div>
+		<div class="square" id="green" @click="maua= true,mau = false ":class="{mauxanh:maua}">{{maua}}</div>
+		<div class="square" id="orange" @click="mau = true,maua=false":class="{maudo:mau}"></div>
+		
+		<div class="square" id="purple" @click="mau = true,maua=false":class="{maudo:mau}"></div>
+
+		<div class="square"  :style="right_answer">{{color}}</div>
+
+		<input type="text" v-model="color">
+		<input type="text" v-model="width">
+		<input type="text" v-model="height">
+		<input type="text" v-model="border">
+
+		<div>{{color}}</div>
+	</div>
+
+	
+</body>
+</html>
+<script type="text/javascript">
+var app5 = new Vue({
+		el: '#hello',
+		data: {
+			message: 'Hello',
+			dem:0,
+		},
+		// methods: {
+		// reverseMessage: function () {
+		//   this.message = this.message.split(' ').reverse().join(' ')
+		// }
+	// }
+})
+var app = new Vue({
+		el: '#do',
+		data: {
+			mau: false,
+			maua: false,
+			color: 'pink',
+			width: '',
+			height: '',
+			border: '',
+		},
+		computed: {
+		    // một computed getter
+		    right_answer: function () {
+		    	return{
+		    		background: this.color,
+		    		width: this.width + 'px',
+		    		height: this.height + 'px',
+		    		'border-radius': this.border + 'px',
+		    	}
+		    }
+		  }
+		// methods: {
+		// reverseMessage: function () {
+		//   this.message = this.message.split(' ').reverse().join(' ')
+		// }
+	// }
+})
+
+
+</script>
