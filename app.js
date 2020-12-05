@@ -78,6 +78,21 @@ new Vue({
 			this.starGame=false;
 			this.playerH=0;
 			this.monsterH=0;
+		},
+		playerAttack: function() {
+			var maxDamage = 20;
+			var minDamage = 15;
+			var damage = Math.max(Math.floor(Math.random()*maxDamage)+1, minDamage);
+			this.monsterH -= damage;
+			this.checkHP(this.playerH ,this.monsterH );
+		},
+		monsterAttack: function() {
+			var maxDamage = 20;
+			var minDamage = 15;
+			var damage = Math.max(Math.floor(Math.random()*maxDamage)+1, minDamage);
+			this.playerH -= damage;
+			this.checkHP(this.playerH ,this.monsterH );
 		}
+
 	}
 });

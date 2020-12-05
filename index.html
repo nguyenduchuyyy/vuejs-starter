@@ -19,6 +19,9 @@
                 </div>
             </div>
             <h1 class="text-center">YOU</h1>
+            <div style="text-align: center;">
+                <button class="text-center" id="player_attach" v-if="starGame" @click="playerAttack">ATTACK</button>
+            </div>
         </div>
         <div class="small-6 columns">
             
@@ -30,6 +33,9 @@
                 </div>
             </div>
             <h1 class="text-center">MONSTER</h1>
+            <div style="text-align: center;">
+                <button class="text-center" id="monster_attach" v-if="starGame" @click="monsterAttack">ATTACK</button>
+            </div>
         </div>
     </section>
     <section class="row controls" v-if="!starGame">
