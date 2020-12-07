@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+<style type="text/css">
+.gray{
+    background-color: gray;
+}
+</style>
 <head>
     <title>Monster Slayer</title>
     <script src="https://npmcdn.com/vue/dist/vue.js"></script>
@@ -7,7 +12,11 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-<div id="app">
+<div id="app"  v-bind:style="bgc">
+    <div>
+        <h3 style="color: red">Change background color</h3>
+        <input type="color" v-on:input="bgc.backgroundColor = $event.target.value"/>
+    </div>
     <section class="row">
         <div class="small-6 columns">
             

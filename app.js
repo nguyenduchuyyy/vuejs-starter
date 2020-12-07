@@ -4,6 +4,10 @@ new Vue({
 		playerH:0,
 		monsterH:0,
 		starGame:false,
+		backgroundswicth: false,
+		bgc: {
+			backgroundColor: ''
+		}
 	},
 	methods: {
 		beginGame: function() {
@@ -92,6 +96,9 @@ new Vue({
 			var damage = Math.max(Math.floor(Math.random()*maxDamage)+1, minDamage);
 			this.playerH -= damage;
 			this.checkHP(this.playerH ,this.monsterH );
+		},
+		changeBackground: function() {
+			this.backgroundswicth = !this.backgroundswicth;
 		}
 
 	}

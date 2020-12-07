@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script src="vue.js"></script>
+<style type="text/css">
+	.square{
+		background: gray;
+		width: 300px;
+		height: 300px;
+		float: left;
+		margin: 20px;
+	}
+	.maudo{
+		background: red;
+	}
+	.mauxanh{
+		background: green;
+	}
+</style>
+<body>
+	
+	<div id="hello" >
+		<div>
+			<input type="text" v-model="message">
+
+		</div>
+		<div>
+			{{message}}
+		</div>
+
+		<div>
+			<button @click="dem++">Push</button>
+			<div>{{dem}}</div>
+		</div>
+	</div>
+
+<div id="do">
+	<button @click="buttonChange"> Change test </button>
+</div>
+
+	
+</body>
+</html>
+<script type="text/javascript">
+var hello = new Vue({
+		el: '#hello',
+		data: {
+			message: 'Hello',
+			dem:0,
+		},
+		// methods: {
+		// reverseMessage: function () {
+		//   this.message = this.message.split(' ').reverse().join(' ')
+		// }
+	// }
+})
+var dodo = new Vue({
+		el: '#do',
+		data: {
+			mau: false,
+			maua: false,
+			color: 'pink',
+			width: '',
+			height: '',
+			border: '',
+		},
+		computed: {
+		    // một computed getter
+		    right_answer: function () {
+		    	return{
+		    		background: this.color,
+		    		width: this.width + 'px',
+		    		height: this.height + 'px',
+		    		'border-radius': this.border + 'px',
+		    	}
+		    }
+		  },
+		methods: {
+			buttonChange: function () {
+				hello.message = 'hi';
+			}
+		}
+})
+
+
+</script>
