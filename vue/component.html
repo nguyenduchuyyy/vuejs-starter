@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script src="vue.js"></script>
+<style type="text/css">
+	.square{
+		background: gray;
+		width: 300px;
+		height: 300px;
+		float: left;
+		margin: 20px;
+	}
+	.maudo{
+		background: red;
+	}
+	.mauxanh{
+		background: green;
+	}
+</style>
+<body>
+	<div id="app1">
+	    <test-component></test-component>
+	</div>
+	<div id="app">
+        <H1>{{ count }}</H1>
+        <child v-on:counter="countPlus"></child>
+        <child v-on:counter="countPlus"></child>
+      <child v-on:counter="countPlus"></child>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+	Vue.component('test-component',{
+	    template: '<h1>Click to increase number</h1>'
+	});
+	var app = new Vue({
+        el: '#app1',
+    });
+    Vue.component('child', {
+            template: '<button  @click="numberPlus()" value="">1</button>',
+            data : function () {
+                return {count: 0};
+            },
+            methods: {
+                numberPlus: function ()
+                {
+                    this.$emit('counter', parseInt(this.count++));
+                }
+            }
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                count: 0
+            },
+          	methods: {
+            	countPlus: function (valueInput)
+                {
+
+                    this.count ++;
+                }
+            }
+        });
+</script>
