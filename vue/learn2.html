@@ -32,7 +32,7 @@
 
 		<div>
 			<button @click="dem++">Push</button>
-			<div>{{dem}}</div>
+			<div :style="testt">{{dem}}</div>
 		</div>
 	</div>
 
@@ -40,6 +40,9 @@
 	<button @click="buttonChange"> Change test </button>
 </div>
 
+<div id='checkchange'>
+	<button @click="changecolor":class="{maudo:flag}">{{message}}</button>
+</div>
 	
 </body>
 </html>
@@ -49,6 +52,8 @@ var hello = new Vue({
 		data: {
 			message: 'Hello',
 			dem:0,
+			testt: 'color: green',
+
 		},
 		// methods: {
 		// reverseMessage: function () {
@@ -57,31 +62,54 @@ var hello = new Vue({
 	// }
 })
 var dodo = new Vue({
-		el: '#do',
-		data: {
-			mau: false,
-			maua: false,
-			color: 'pink',
-			width: '',
-			height: '',
-			border: '',
-		},
-		computed: {
-		    // một computed getter
-		    right_answer: function () {
-		    	return{
-		    		background: this.color,
-		    		width: this.width + 'px',
-		    		height: this.height + 'px',
-		    		'border-radius': this.border + 'px',
-		    	}
-		    }
-		  },
-		methods: {
-			buttonChange: function () {
-				hello.message = 'hi';
-			}
+	el: '#do',
+	data: {
+		mau: false,
+		maua: false,
+		color: 'pink',
+		width: '',
+		height: '',
+		border: '',
+	},
+	computed: {
+	    // một computed getter
+	    right_answer: function () {
+	    	return{
+	    		background: this.color,
+	    		width: this.width + 'px',
+	    		height: this.height + 'px',
+	    		'border-radius': this.border + 'px',
+	    	}
+	    }
+	  },
+	methods: {
+		buttonChange: function () {
+			hello.message = 'hi';
 		}
+	}
+})
+var checkchange = new Vue({
+	el: '#checkchange',
+	data: {
+		message: 'Hello Chi',
+		styleData: 'color: orange',
+		flag: false,
+		
+	},
+	methods: {
+		changecolor: function () {
+		  this.message = this.message.split(' ').reverse().join(' ');
+		  this.flag = !this.flag;
+		  hello.message = "1235 7";
+		  
+		  if (hello.dem >= 23) {
+		  	hello.dem++;
+		  } else {
+			hello.dem = 23; 
+		  }
+		  hello.testt= 'font-size: 66px';
+		}
+	}
 })
 
 
