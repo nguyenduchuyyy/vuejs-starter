@@ -68,7 +68,7 @@
             }
         }
     });
-    var app = new Vue({
+    var app1 = new Vue({
         el: '#app2',
         data: {
             title: "this is title"
@@ -76,7 +76,8 @@
       	methods: {
         	clickTitle: function ()
             {
-                this.updateTitle("updatedddddddd")
+                this.updateTitle("updatedddddddd");
+                app.count = 5;
             },
             updateTitle: function (title)
             {
@@ -85,8 +86,7 @@
         },
         watch: {
         	title: function(value) {
-        		var x = document.getElementById("title");
-        		alert ("title is changing to " + x);
+        		alert ("title is changing to " + value);
         	}
         }
     });
