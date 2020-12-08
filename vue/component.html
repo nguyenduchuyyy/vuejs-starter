@@ -32,7 +32,7 @@
     
     <div id="app2">
         <div id="title">{{title}}</div>
-        <button @click="clickTitle"> updateTitle</button>
+        <button @click="clickTitle" ref="infoButton"> updateTitle</button>
     </div>
 </body>
 </html>
@@ -78,6 +78,9 @@
             {
                 this.updateTitle("updatedddddddd");
                 app.count = 5;
+                console.log(this.$refs);
+                this.$refs.infoButton.innerText= "change ref info";
+
             },
             updateTitle: function (title)
             {
