@@ -29,6 +29,11 @@
         <child v-on:counter="countPlus"></child>
       <child v-on:counter="countPlus"></child>
     </div>
+    
+    <div id="app2">
+        <div id="title">{{title}}</div>
+        <button @click="clickTitle"> updateTitle</button>
+    </div>
 </body>
 </html>
 <script type="text/javascript">
@@ -39,28 +44,50 @@
         el: '#app1',
     });
     Vue.component('child', {
-            template: '<button  @click="numberPlus()" value="">1</button>',
-            data : function () {
-                return {count: 0};
-            },
-            methods: {
-                numberPlus: function ()
-                {
-                    this.$emit('counter', parseInt(this.count++));
-                }
+        template: '<button  @click="numberPlus()" value="">1</button>',
+        data : function () {
+            return {count: 0};
+        },
+        methods: {
+            numberPlus: function ()
+            {
+                this.$emit('counter', parseInt(this.count++));
             }
-        });
-        var app = new Vue({
-            el: '#app',
-            data: {
-                count: 0
-            },
-          	methods: {
-            	countPlus: function (valueInput)
-                {
+        }
+    });
+    var app = new Vue({
+        el: '#app',
+        data: {
+            count: 0
+        },
+      	methods: {
+        	countPlus: function (valueInput)
+            {
 
-                    this.count ++;
-                }
+                this.count ++;
             }
-        });
+        }
+    });
+    var app = new Vue({
+        el: '#app2',
+        data: {
+            title: "this is title"
+        },
+      	methods: {
+        	clickTitle: function ()
+            {
+                this.updateTitle("updatedddddddd")
+            },
+            updateTitle: function (title)
+            {
+                this.title = title;
+            }
+        },
+        watch: {
+        	title: function(value) {
+        		var x = document.getElementById("title");
+        		alert ("title is changing to " + x);
+        	}
+        }
+    });
 </script>
