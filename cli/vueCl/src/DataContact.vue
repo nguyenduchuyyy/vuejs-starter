@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p :class="{red:flag}" >My address: {{address}}</p>
+    <p :class="{red:flag}">My address: {{address}}</p>
     <hr>
     <button @click="changePhone" > Show me</button>
   </div>
@@ -23,8 +23,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .red{
   color:red;
 }
+ div{
+   border: 1px solid green;
+ } 
 </style>
