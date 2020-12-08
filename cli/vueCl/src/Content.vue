@@ -4,7 +4,7 @@
     <h1>Content of {{name}}</h1>
     <button @click="changeName">change Name</button>
   </div>
-  <content-c1 :name="{name}" @nameWasReset="name = $event"></content-c1>
+  <content-c1 :name="{name}" @nameWasReset="name = $event" :resetNameFn="resetName"></content-c1>
   <content-c2></content-c2>
 </div>
   
@@ -27,6 +27,9 @@ export default {
   methods:{
     changeName: function() {
       this.name = '   HUYYYYYYY   '
+    },
+    resetName: function() {
+      this.name = "Content";
     }
   }
 }

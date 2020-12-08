@@ -3,7 +3,7 @@
       <h1>Contentc1</h1>
       <h2>{{temp}}</h2>
       <button @click= "resetName()"> Reset Name</button>
-   
+      <button @click="resetNameFn()"> Reset Name Callback</button>
   </div>
   
 </template>
@@ -14,7 +14,8 @@
       name:{
         type: Object,
         default:"default name"
-      }
+      },
+      resetNameFn: Function
     },  
     data: function(){
       return{
