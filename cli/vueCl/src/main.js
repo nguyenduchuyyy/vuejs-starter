@@ -4,7 +4,13 @@ import Content from './Content.vue'
 import Header from './Header.vue'
 import Footer from './Footer.vue'
 import App from './App.vue'
-export const evenBus = new Vue();
+export const evenBus = new Vue({
+  methods: {
+    changeAge(age){
+      this.$emit('ageWasEdit',age);
+    }
+  }
+});
 
 Vue.component('contact-component', Contact);
 Vue.component('content-component', Content);

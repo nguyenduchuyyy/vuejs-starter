@@ -22,7 +22,8 @@ export default {
     editAge: function() {
       this.useAge = 30;
       // this.$emit('ageWasEdit',this.useAge);
-      evenBus.$emit('ageWasEdit',this.useAge);
+      // evenBus.$emit('ageWasEdit',this.useAge);
+      evenBus.changeAge(this.useAge); 
     }
   }
 }
