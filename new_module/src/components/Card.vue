@@ -2,7 +2,13 @@
     <div>
         <h2>{{cardWords}}</h2>
         <h2>Declared</h2>
-        <slot></slot>
+        <div class="title">
+            <slot name="title"></slot>
+        </div>
+        <div class="content">
+            <slot name="content"></slot>
+        </div>
+
     </div>
 </template>
 
