@@ -1,7 +1,6 @@
 <template>
 <div class="head">
-  <h1>THE USER COMPONENT</h1>
-  <h3>Hi, I'm {{name}}</h3>
+  <h1>THIS IS HEADER</h1>
 
 </div>
   

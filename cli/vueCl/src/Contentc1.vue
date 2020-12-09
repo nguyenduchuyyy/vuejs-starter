@@ -2,6 +2,7 @@
   <div class="divclass">
       <h1>Contentc1</h1>
       <h2>{{temp}}</h2>
+      <p>My age on 1: {{ useAge }}</p>
       <button @click= "resetName()"> Reset Name</button>
       <button @click="resetNameFn()"> Reset Name Callback</button>
   </div>
@@ -15,7 +16,8 @@
         type: Object,
         default:"default name"
       },
-      resetNameFn: Function
+      resetNameFn: Function,
+      useAge: Number 
     },  
     data: function(){
       return{

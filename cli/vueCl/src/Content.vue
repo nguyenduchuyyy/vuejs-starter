@@ -1,11 +1,11 @@
 <template>
 <div>
   <div>
-    <h1>Content of {{name}}</h1>
+    <h1>My name is <i>{{name}}</i> & I <i>{{age}}</i> years old</h1>
     <button @click="changeName">change Name</button>
   </div>
-  <content-c1 :name="{name}" @nameWasReset="name = $event" :resetNameFn="resetName"></content-c1>
-  <content-c2></content-c2>
+  <content-c1 :name="{name}" @nameWasReset="name = $event" :resetNameFn="resetName" :useAge="age"></content-c1>
+  <content-c2 :useAge="age" @ageWasEdit="age = $event"></content-c2>
 </div>
   
 </template>
@@ -21,7 +21,8 @@ export default {
   },
   data: function() {
     return{
-      name:"Content"
+      name:"Content",
+      age:12
     }
   },
   methods:{
