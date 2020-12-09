@@ -10,6 +10,7 @@
 </template>
 
 <script>
+  import {evenBus} from './main.js'
   export default {
     props:{
       name:{
@@ -38,6 +39,11 @@
         this.temp = "Content";
         this.$emit('nameWasReset',this.temp);
       }
+    },
+    created(){
+      evenBus.$on('ageWasEdit',(age)=>{
+        this.useAge = age
+      })
     }
   }
 </script>

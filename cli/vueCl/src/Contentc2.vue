@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import {evenBus} from './main.js'
 export default {
   props:{
     useAge: Number
@@ -20,7 +21,8 @@ export default {
   methods:{
     editAge: function() {
       this.useAge = 30;
-      this.$emit('ageWasEdit',this.useAge);
+      // this.$emit('ageWasEdit',this.useAge);
+      evenBus.$emit('ageWasEdit',this.useAge);
     }
   }
 }
