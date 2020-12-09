@@ -15,7 +15,9 @@
             <p slot='title'>THIS TITLE</p>
             <p slot='content'>THIS CONTENT</p>
           </app-card> -->
-          <component :is="selectComponent"></component>
+          <keep-alive>
+            <component :is="selectComponent"></component>
+          </keep-alive>
         </div>
       </div>
     </div>    
